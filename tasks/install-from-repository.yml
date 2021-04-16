@@ -1,0 +1,10 @@
+---
+- name: Install Xdebug.
+  package:
+    name: php{{ php_version }}-xdebug
+    state: present
+  notify: restart webserver
+
+- name: Define php_xdebug_zend_extension_path.
+  set_fact:
+    php_xdebug_zend_extension_path: xdebug.so
