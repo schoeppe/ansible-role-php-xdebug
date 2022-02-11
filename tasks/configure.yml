@@ -1,7 +1,10 @@
 ---
+- set_fact:
+    xdebug_config_template: "{{ 'xdebug.ini.j2' if php_xdebug_version is version('3', '<') else 'xdebug3.ini.j2' }}"
+
 - name: Copy xdebug ini into main extension config folder.
   template:
-    src: xdebug.ini.j2
+    src: "{{ xdebug_config_template }}"
     dest: "{{ item }}/{{ php_xdebug_config_filename }}"
     owner: root
     group: root

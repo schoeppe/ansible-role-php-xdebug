@@ -1,0 +1,15 @@
+[XDebug]
+zend_extension="{{ php_xdebug_zend_extension_path }}"
+
+xdebug.mode={{ php_xdebug_mode }}
+xdebug.start_with_request={{ php_xdebug_start_with_request }}
+xdebug.discover_client_host={{ php_xdebug_discover_client_host }}
+xdebug.client_host={{ php_xdebug_client_host }}
+{% if pxp_xdebug_log is defined %}
+php_xdebug_log={{ php_xdebug_log }}
+php_xdebug_log_level={{ php_xdebug_log_level | default(7) }}
+{% endif %}
+
+xdebug.idekey="{{ php_xdebug_idekey }}"
+
+xdebug.max_nesting_level={{ php_xdebug_max_nesting_level }}
